@@ -37,9 +37,9 @@ class ScoreActivity : AppCompatActivity() {
             val school = getParcelableExtra<SchoolsItem>(SCHOOL_ITEM)
 
             bindingScore.tvSchoolName.text = school?.school_name
-            bindingScore.tvAddress.text = school?.primary_address_line_1
-            bindingScore.tvEmail.text = school?.city
-            bindingScore.tvWebsite.text = school?.neighborhood
+            bindingScore.tvAddress.text = school?.location
+            bindingScore.tvEmail.text = school?.school_email
+            bindingScore.tvWebsite.text = school?.website
             bindingScore.tvOverview.text = school?.overview_paragraph
 
             initObservables(school?.dbn)
@@ -77,15 +77,15 @@ class ScoreActivity : AppCompatActivity() {
 
     private fun populateSatDetails(satDetails: List<Score>, schDbn: String) {
         satDetails.firstOrNull { it.dbn == schDbn }?.let {
-            if (it.sat_math_avg_score.isEmpty()) {
+            if (it.mathAvg.isEmpty()) {
                 bindingScore.scoreInfo.visibility = View.INVISIBLE
             } else {
                 bindingScore.scoreInfo.visibility = View.VISIBLE
             }
 
-            bindingScore.tvMathScores.text = it.sat_math_avg_score
-            bindingScore.tvReadingScores.text = it.sat_critical_reading_avg_score
-            bindingScore.tvWritingScores.text = it.sat_writing_avg_score
+            bindingScore.tvMathScores.text = it.mathAvg
+            bindingScore.tvReadingScores.text = it.readingAvg
+            bindingScore.tvWritingScores.text = it.writingAvg
         }
     }
 

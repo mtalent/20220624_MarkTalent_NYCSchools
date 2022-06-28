@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.talent.a202220624_marktalent_nycschools.api.ApiService
 import com.talent.a202220624_marktalent_nycschools.model.schools.SchoolsItem
 import com.talent.a202220624_marktalent_nycschools.viewmodel.SchoolClickEvent
 import com.talent.databinding.SchoolItemBinding
@@ -38,7 +39,7 @@ class SchoolsAdapter(
     override fun onBindViewHolder(holder: SchoolsViewHolder, position: Int) {
         holder.binding.tvSchoolName.text = items[position].school_name
         holder.binding.tvSchoolLocation.text = items[position].neighborhood
-        holder.binding.tvSchoolPhone.text = items[position].postcode
+        holder.binding.tvSchoolPhone.text = items[position].phone_number
 
 
         holder.binding.cardView.setOnClickListener {
