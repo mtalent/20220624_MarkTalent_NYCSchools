@@ -22,16 +22,17 @@
             android:exported="false" />
         <activity
             android:name="com.talent.a202220624_marktalent_nycschools.view.SplashScreenActivity"
-            android:exported="false"
+            android:exported="true"
             android:theme="@style/SplashScreenTheme">
-        </activity>
-        <activity
-            android:name="com.talent.a202220624_marktalent_nycschools.view.MainActivity"
-            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.talent.a202220624_marktalent_nycschools.view.MainActivity"
+            android:exported="false">
+
         </activity>
     </application>
 </manifest>

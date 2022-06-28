@@ -5,18 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.talent.a202220624_marktalent_nycschools.view.SplashScreenActivity"
-    android:background="#A5DEF2">
+    android:background="@color/NYCAct2">
 
     <ImageView
         android:id="@+id/iv_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:contentDescription="@string/company_logo"
         android:scaleType="fitXY"
-        android:src="@drawable/nyc_open_data_logo"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
+        android:src="@drawable/department_of_education" />
 
 </RelativeLayout>
