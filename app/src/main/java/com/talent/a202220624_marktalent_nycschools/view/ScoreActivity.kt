@@ -37,7 +37,7 @@ class ScoreActivity : AppCompatActivity() {
             val school = getParcelableExtra<SchoolsItem>(SCHOOL_ITEM)
 
             bindingScore.tvSchoolName.text = school?.school_name
-            bindingScore.tvAddress.text = school?.location
+            bindingScore.tvAddress.text = school?.primary_address_line_1
             bindingScore.tvEmail.text = school?.school_email
             bindingScore.tvWebsite.text = school?.website
             bindingScore.tvOverview.text = school?.overview_paragraph
@@ -45,11 +45,8 @@ class ScoreActivity : AppCompatActivity() {
             initObservables(school?.dbn)
         }
 
-        viewModel.getScoreList()
-
         bindingScore.backButton.setOnClickListener{
-            val intentBack = Intent(this, MainActivity::class.java)
-            startActivity(intentBack)
+            onBackPressed()
         }
     }
 
@@ -57,7 +54,7 @@ class ScoreActivity : AppCompatActivity() {
         viewModel.schoolSatResponse.observe(this) { action ->
             when (action) {
                 is ResponseState.Loading -> {
-                    Toast.makeText(baseContext, "loading SAT schools...", Toast.LENGTH_SHORT).show()
+                    viewModel.getScoreList()
                 }
                 is ResponseState.SUCCESS<*> -> {
                     val newSchools = action.response as? List<Score>

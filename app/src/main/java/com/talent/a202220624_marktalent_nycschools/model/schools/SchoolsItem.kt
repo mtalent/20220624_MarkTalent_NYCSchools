@@ -10,10 +10,8 @@ data class SchoolsItem(
     val school_name: String,
     val overview_paragraph: String,
     val neighborhood: String,
-    val location: String,
+    val primary_address_line_1: String,
     val phone_number: String,
     val school_email: String,
-    val website: String,
-    val latitude: String,
-    val longitude: String
+    val website: String
 ): Parcelable

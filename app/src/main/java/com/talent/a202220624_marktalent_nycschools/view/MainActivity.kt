@@ -15,13 +15,19 @@ import com.talent.a202220624_marktalent_nycschools.viewmodel.SchoolClickEvent
 import com.talent.a202220624_marktalent_nycschools.viewmodel.SchoolsViewModel
 import com.talent.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
-//Setting up the models that present a list of schools and
-//provide an option to click and to each school details.
-//Validation is also provided.
+
+/**
+ * Setting up the models that present a list of schools and
+ *  provide an option to click and to each school details.
+ *  Validation is also provided.
+ *
+ */
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), SchoolClickEvent {
 
     private lateinit var bindingMain: ActivityMainBinding
+
+
 
     private val viewModel: SchoolsViewModel by lazy {
         ViewModelProvider(this).get(SchoolsViewModel::class.java)
@@ -29,18 +35,19 @@ class MainActivity : AppCompatActivity(), SchoolClickEvent {
 
     private lateinit var adapterSchool: SchoolsAdapter
 
+    /**
+     *  perform basic application startup logic that should
+     *  happen only once for the entire life of the activity
+     *
+     * @param savedInstanceState
+     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         bindingMain = ActivityMainBinding.inflate(layoutInflater)
         setContentView(bindingMain.root)
-    }
-
-    override fun onResume() {
-        super.onResume()
-
         initializeRecyclerView()
         initObservables()
-        viewModel.getSchoolList()
     }
 
     private fun initializeRecyclerView() {

@@ -6,10 +6,20 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
+
+
 interface Repository {
     fun getSchool(): Flow<ResponseState>
     fun getScore(): Flow<ResponseState>
 }
+
+/**
+ *  facilitates de-coupling of the business logic
+ *  and the data access layers in your application
+ *
+ * @property service
+ */
+
 
 //Implementation to get School and SAT data loaded successfully otherwise provide an error
 class RepositoryImpl @Inject constructor(
@@ -34,7 +44,6 @@ class RepositoryImpl @Inject constructor(
     }
 
     override fun getScore() = flow {
-        emit(ResponseState.Loading)
         try {
             val response = service.getSchoolScore()
             if (response.isSuccessful) {

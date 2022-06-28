@@ -15,7 +15,10 @@ import kotlinx.coroutines.Dispatchers
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-//Framework that interacts with the NYC OpenData API.
+/**
+ * Framework that interacts with the NYC OpenData API.
+
+ */
 @Module
 @InstallIn(SingletonComponent::class)
 class ServiceModel {
