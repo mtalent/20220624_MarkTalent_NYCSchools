@@ -43,6 +43,7 @@ class RepositoryImpl @Inject constructor(
         }
     }
 
+
     override fun getScore() = flow {
         try {
             val response = service.getSchoolScore()
